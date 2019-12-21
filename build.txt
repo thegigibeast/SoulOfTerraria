@@ -1,0 +1,3 @@
+displayName = Soul of Terraria
+author = thegigibeast
+version = 0.1
