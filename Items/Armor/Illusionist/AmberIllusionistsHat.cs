@@ -28,10 +28,21 @@ namespace SoulOfTerraria.Items.Armor.Illusionist
             drawAltHair = true;
         }
 
+        public override bool IsArmorSet(Item head, Item body, Item legs)
+        {
+            return body.type == ModContent.ItemType<IllusionistSuit>();
+        }
+
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Amber Illusionist's Hat");
             Tooltip.SetDefault("15% increased magic damage and knockback\nIncreases maximum mana by 90");
+        }
+
+        public override void UpdateArmorSet(Player player)
+        {
+            player.setBonus = "Magic attacks have a 30% chance of moving 30% slower but dealing double knockback";
+            player.GetModPlayer<SoulOfTerrariaPlayer>().amberSet = true;
         }
 
         public override void UpdateEquip(Player player)

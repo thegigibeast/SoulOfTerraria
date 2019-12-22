@@ -28,10 +28,22 @@ namespace SoulOfTerraria.Items.Armor.Illusionist
             drawAltHair = true;
         }
 
+        public override bool IsArmorSet(Item head, Item body, Item legs)
+        {
+            return body.type == ModContent.ItemType<IllusionistSuit>();
+        }
+
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Emerald Illusionist's Hat");
             Tooltip.SetDefault("21% increased casting speed and knockback\nIncreases maximum mana by 80");
+        }
+
+        public override void UpdateArmorSet(Player player)
+        {
+            player.setBonus = "Increases jump height and flight time by 21%";
+            player.jumpSpeedBoost += 0.504f;
+            player.wingTimeMax = (int)(player.wingTimeMax * 1.21f);
         }
 
         public override void UpdateEquip(Player player)

@@ -27,10 +27,22 @@ namespace SoulOfTerraria.Items.Armor.Illusionist
             drawAltHair = true;
         }
 
+        public override bool IsArmorSet(Item head, Item body, Item legs)
+        {
+            return body.type == ModContent.ItemType<IllusionistSuit>();
+        }
+
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Ruby Illusionist's Hat");
             Tooltip.SetDefault("10% increased magic damage\n9% increased magic critical strike chance\nIncreases maximum mana by 80");
+        }
+
+        public override void UpdateArmorSet(Player player)
+        {
+            player.setBonus = "10% increased casting speed\nMagic projectiles burst into Molotov fragments when destroyed";
+            player.GetModPlayer<SoulOfTerrariaPlayer>().magicSpeed += 0.1f;
+            player.GetModPlayer<SoulOfTerrariaPlayer>().rubySet = true;
         }
 
         public override void UpdateEquip(Player player)

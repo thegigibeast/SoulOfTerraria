@@ -1,3 +1,4 @@
+using Terraria;
 using Terraria.ModLoader;
 
 namespace SoulOfTerraria
@@ -7,5 +8,13 @@ namespace SoulOfTerraria
 		public SoulOfTerraria()
 		{
 		}
-	}
+
+        public override void Load()
+        {
+            if (!Main.dedServ)
+            {
+                AddEquipTexture(null, EquipType.Legs, "IllusionistSuit_Legs", "SoulOfTerraria/Items/Armor/Illusionist/IllusionistSuit_Legs");
+            }
+        }
+    }
 }
