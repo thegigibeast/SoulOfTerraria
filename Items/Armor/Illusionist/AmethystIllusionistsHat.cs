@@ -31,7 +31,7 @@ namespace SoulOfTerraria.Items.Armor.Illusionist
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Amethyst Illusionist's Hat");
-            Tooltip.SetDefault("11% to 33% increased magic damage and velocity with each shot\nIncreases maximum mana by 40");
+            Tooltip.SetDefault("11% to 33% increased magic damage and velocity, random with each shot\nIncreases maximum mana by 40");
         }
 
         public override void UpdateEquip(Player player)

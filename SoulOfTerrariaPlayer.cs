@@ -6,7 +6,7 @@ namespace SoulOfTerraria
     public class SoulOfTerrariaPlayer : ModPlayer
     {
         public bool amethystHat;
-        public float amethystHatBonus = Main.rand.NextFloat(0.11f, 0.33f);
+        public float amethystHatBonus;
         public float magicKnockback;
         public float magicSpeed;
         public float magicVelocity;
@@ -17,6 +17,11 @@ namespace SoulOfTerraria
             {
                 knockback *= 1 + magicKnockback;
             }
+        }
+
+        public override void OnEnterWorld(Player player)
+        {
+            amethystHatBonus = Main.rand.NextFloat(0.11f, 0.33f);
         }
 
         public override void ResetEffects()
